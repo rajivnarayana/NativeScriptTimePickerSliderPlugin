@@ -14,15 +14,18 @@ This command automatically install the necessary ios files from the cocoapod git
 
 ## Examples
 
-There is an example application location at the folder Example. To run it (assuming you have nativescript plugin installed globally) 
+There is an sample application at the folder "Example". To run it (assuming you have nativescript plugin installed globally) 
 
 ```
+$ sudo npm install typescript -g
+$ tsc
+$ cd Example
 $ tns plugin add ../
 ```
 
-Run the application from your mac onto your iOS simulator by 
+Run the application from your mac onto your iOS simulator by typing
 ```
-$ tns emulate ios --device=iPhone-5s
+$ tns emulate ios --device=iPhone\ 5s
 ```
 
 The following code from Example/app/main.xml show you a way to add Time picker to your layout
