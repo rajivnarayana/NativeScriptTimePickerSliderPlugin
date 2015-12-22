@@ -1,0 +1,30 @@
+{
+  "name": "nativescript-timepicker-slider",
+  "version": "0.1.0",
+  "description": "A nativescript api for TimePickerSlider cocoapods ios control",
+  "main": "time-picker-slider.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "nativescript": {
+    "platforms": {
+      "ios": "1.0.0"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rajivnarayana/nativescript-timepicker-slider.git"
+  },
+  "keywords": [
+    "Nativescript"
+  ],
+  "author": "Rajiv Narayana <rajivnarayana@gmail.com> (https://github.com/rajivnarayana)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rajivnarayana/nativescript-timepicker-slider/issues"
+  },
+  "homepage": "https://github.com/rajivnarayana/nativescript-timepicker-slider#readme",
+  "devDependencies": {
+    "tns-core-modules": "^1.5.1"
+  }
+}
