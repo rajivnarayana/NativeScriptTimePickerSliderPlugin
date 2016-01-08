@@ -40,10 +40,18 @@ class TimeSliderChangeHandlerImpl extends NSObject {
         return handler;
     }
 
-    public sliderValueChanged(sender: TimeIntervalSlider) {
+    public sliderValueChanged(sender: UIControl) {
         let owner = this._owner.get();
         if (owner) {
+            let oldValue = owner.value;
             owner._onPropertyChangedFromNative(Slider.valueProperty, sender.value);
+            owner._nativePropertyChangePropogating = true;
+            owner._onPropertyChangedFromNative(TimeIntervalSliderCommon.hourProperty, Math.floor(sender.value / 2));
+            owner._onPropertyChangedFromNative(TimeIntervalSliderCommon.minuteProperty, 30 * (Math.floor(sender.value) % 2));
+            owner._nativePropertyChangePropogating = false;
+            if (!sender.tracking) {
+                owner._onPropertyChanged(Slider.valueProperty, sender.value, oldValue);    
+            }
         }
     }
 

@@ -1,16 +1,13 @@
 <Page xmlns="http://schemas.nativescript.org/tns.xsd" loaded="pageLoaded" xmlns:tools="nativescript-timepicker-slider">
   <DockLayout stretchLastChild="false" style="background-color: gray">
     <tools:TimeIntervalSlider 
-        hour="8" 
-        minute="30" 
+        hour="{{pickupTime.hour}}" 
+        minute="{{pickupTime.minute}}" 
         dock="bottom" 
         fillColor="#e00000"
         strokeColor="#0000e0"
         loaded="onSliderLoaded"
         />
-        <Slider
-        dock="top"
-        value="0.4"
-        />
+        <Label text="{{text}}" dock="top" />
   </DockLayout>
 </Page>

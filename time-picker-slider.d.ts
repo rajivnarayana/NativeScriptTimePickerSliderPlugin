@@ -2,13 +2,16 @@ declare module "time-picker-slider" {
     import { Slider } from "ui/slider";
     import { View } from "ui/core/view";
     import { Color } from "color";
+    import { Property } from "ui/core/dependency-observable";
     
     export class TimeIntervalSlider extends Slider {
         ios : any; /* HZTimeIntervalSlider */
-        public static lineWidthProperty;
-        public static cornerRadiusProperty;
-        public static strokeColorProperty;
-        public static fillColorProperty;
+        public static lineWidthProperty : Property;
+        public static cornerRadiusProperty : Property;
+        public static strokeColorProperty : Property;
+        public static fillColorProperty : Property;
+        public static hourProperty : Property;
+        public static minuteProperty : Property;
         
         lineWidth: number;
         cornerRadius: number;
@@ -17,6 +20,8 @@ declare module "time-picker-slider" {
         
         hour: number;
         minute: number;
+        
+        private _nativePropertyChangePropogating : boolean;
         
         /**
          * Protected.

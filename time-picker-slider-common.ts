@@ -50,6 +50,7 @@ function toString(value: number): string {
 
 export class TimeIntervalSlider extends Slider implements TimePickerSliderDefinition {
     
+    protected _nativePropertyChangePropogating : boolean = false;
     public static lineWidthProperty = new Property("lineWidth", "TimeIntervalSlider", new PropertyMetadata(2));
     public static cornerRadiusProperty = new Property("cornerRadius", "TimeIntervalSlider", new PropertyMetadata(5));
     public static fillColorProperty = new Property("fillColor", "TimeIntervalSlider", 
@@ -118,6 +119,9 @@ export class TimeIntervalSlider extends Slider implements TimePickerSliderDefini
     }
     
     public _setNativeTime(): void {
+        if (this._nativePropertyChangePropogating ) {
+            return;
+        }
         this.value = (this.hour * 2) + (this.minute < 30 ? 0 : 1);   
     }
 }
