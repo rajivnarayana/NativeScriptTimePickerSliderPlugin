@@ -1,6 +1,6 @@
 {
   "name": "nativescript-timepicker-slider",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "A nativescript api for TimePickerSlider cocoapods ios control",
   "main": "time-picker-slider.js",
   "scripts": {

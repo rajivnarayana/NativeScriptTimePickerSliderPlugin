@@ -50,7 +50,7 @@ function toString(value: number): string {
 
 export class TimeIntervalSlider extends Slider implements TimePickerSliderDefinition {
     
-    protected _nativePropertyChangePropogating : boolean = false;
+    public _nativePropertyChangePropogating : boolean = false;
     public static lineWidthProperty = new Property("lineWidth", "TimeIntervalSlider", new PropertyMetadata(2));
     public static cornerRadiusProperty = new Property("cornerRadius", "TimeIntervalSlider", new PropertyMetadata(5));
     public static fillColorProperty = new Property("fillColor", "TimeIntervalSlider", 
@@ -71,7 +71,19 @@ export class TimeIntervalSlider extends Slider implements TimePickerSliderDefini
 
     public static minuteProperty = new Property("minute", "TimeIntervalSlider",
         new PropertyMetadata(0, PropertyMetadataSettings.None, onMinutePropertyChanged, isMinuteValid));
+        
+    public static minHourProperty = new Property("minHour", "TimeIntervalSlider",
+        new PropertyMetadata(0, PropertyMetadataSettings.None, onHourPropertyChanged, isHourValid));
     
+    public static maxHourProperty = new Property("maxHour", "TimeIntervalSlider",
+        new PropertyMetadata(2 * 23, PropertyMetadataSettings.None, onHourPropertyChanged, isHourValid));
+        
+    public static minMinuteProperty = new Property("minMinute", "TimeIntervalSlider",
+        new PropertyMetadata(0, PropertyMetadataSettings.None, onMinutePropertyChanged, isMinuteValid));
+    
+    public static maxMinuteProperty = new Property("maxMinute", "TimeIntervalSlider",
+        new PropertyMetadata(30, PropertyMetadataSettings.None, onMinutePropertyChanged, isMinuteValid));
+        
     get lineWidth() : number {
         return this._getValue(TimeIntervalSlider.lineWidthProperty);
     }
@@ -116,6 +128,38 @@ export class TimeIntervalSlider extends Slider implements TimePickerSliderDefini
     }
     set minute(value: number) {
         this._setValue(TimeIntervalSlider.minuteProperty, value);
+    }
+    
+    get minHour(): number {
+        return this._getValue(TimeIntervalSlider.minHourProperty);
+    }
+    
+    get maxHour(): number {
+        return this._getValue(TimeIntervalSlider.maxHourProperty);
+    }
+    
+    get minMinute(): number {
+        return this._getValue(TimeIntervalSlider.minMinuteProperty);
+    }
+    
+    get maxMinute(): number {
+        return this._getValue(TimeIntervalSlider.maxMinuteProperty);
+    }
+    
+    set minHour(value : number) {
+        this._setValue(TimeIntervalSlider.minHourProperty, value);    
+    }
+    
+    set minMinute(value : number) {
+        this._setValue(TimeIntervalSlider.minMinuteProperty, value);    
+    }
+        
+    set maxHour(value : number) {
+        this._setValue(TimeIntervalSlider.maxHourProperty, value);    
+    }
+    
+    set maxMinute(value : number) {
+        this._setValue(TimeIntervalSlider.maxMinuteProperty, value);    
     }
     
     public _setNativeTime(): void {

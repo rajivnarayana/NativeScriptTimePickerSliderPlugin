@@ -50,7 +50,14 @@ class TimeSliderChangeHandlerImpl extends NSObject {
             owner._onPropertyChangedFromNative(TimeIntervalSliderCommon.minuteProperty, 30 * (Math.floor(sender.value) % 2));
             owner._nativePropertyChangePropogating = false;
             if (!sender.tracking) {
-                owner._onPropertyChanged(Slider.valueProperty, sender.value, oldValue);    
+                owner._onPropertyChanged(Slider.valueProperty, sender.value, oldValue);
+                if (sender.value < 2 * owner.minHour + (owner.minMinute < 30 ? 0 : 1)) {
+                    sender.value = 2 * owner.minHour + (owner.minMinute < 30 ? 0 : 1);
+                    this.sliderValueChanged(sender);
+                } else if (sender.value > 2 * owner.maxHour + (owner.maxMinute < 30 ? 0 : 1)) {
+                    sender.value = 2 * owner.maxHour + (owner.maxMinute < 30 ? 0 : 1);
+                    this.sliderValueChanged(sender);
+                }
             }
         }
     }
@@ -61,7 +68,7 @@ class TimeSliderChangeHandlerImpl extends NSObject {
 }
 
 export class TimeIntervalSlider extends TimeIntervalSliderCommon {
-    private _ios: HZTimeIntervalSlider;
+    private _ios: any /*HZTimeIntervalSlider*/;
     private _changeHandler: TimeSliderChangeHandlerImpl;
     
     constructor() {

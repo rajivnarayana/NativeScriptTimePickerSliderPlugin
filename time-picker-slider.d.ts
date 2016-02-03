@@ -12,11 +12,19 @@ declare module "time-picker-slider" {
         public static fillColorProperty : Property;
         public static hourProperty : Property;
         public static minuteProperty : Property;
+        public static minHourProperty : Property;
+        public static maxHourProperty : Property;
+        public static minMinuteProperty : Property;
+        public static maxMinuteProperty : Property;
         
         lineWidth: number;
         cornerRadius: number;
         strokeColor: Color;
         fillColor: Color;
+        minHour : number;
+        maxHour : number;
+        minMinute : number;
+        maxMinute : number;
         
         hour: number;
         minute: number;

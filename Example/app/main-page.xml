@@ -7,6 +7,8 @@
         fillColor="#e00000"
         strokeColor="#0000e0"
         loaded="onSliderLoaded"
+        minHour="9"
+        minMinute="30"
         />
         <Label text="{{text}}" dock="top" />
   </DockLayout>
